@@ -21,6 +21,11 @@ fun main(args: Array<String>) {
     runApplication<Application>(*args)
 }
 
+data class TwitterQuery (
+    val q: String?,
+    val max: Int? = 5
+    )
+
 const val DIRECT_ROUTE = "direct:twitter"
 const val COUNT_ROUTE = "direct:extractor"
 const val LOG_ROUTE = "direct:log"
@@ -32,8 +37,8 @@ class SearchController(private val producerTemplate: ProducerTemplate) {
 
     @RequestMapping(value = ["/search"])
     @ResponseBody
-    fun search(@RequestParam("q") q: String?): Any =
-        producerTemplate.requestBodyAndHeader(DIRECT_ROUTE, "mandalorian", "keywords", q)
+    fun search(query: TwitterQuery): Any =
+        producerTemplate.requestBodyAndHeaders(DIRECT_ROUTE, "mandalorian", mapOf("q" to query.q, "max" to query.max))
 }
 
 @Component
@@ -43,7 +48,7 @@ class Router(meterRegistry: MeterRegistry) : RouteBuilder() {
 
     override fun configure() {
         from(DIRECT_ROUTE)
-            .toD("twitter-search:\${header.keywords}")
+            .toD("twitter-search:\${header.q}?count=\${header.max}")
             .wireTap(LOG_ROUTE)
             .wireTap(COUNT_ROUTE)
 

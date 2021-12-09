@@ -61,14 +61,15 @@
 <div class="container">
     <!-- Formulario principal -->
     <form action="search" id="search" method="get">
-        <div class="row">
-            <input class="form-control" id="q" name="q" placeholder="Escribe algo que quieras buscar"
+        <div class="input-group input-group-sm col-sm-offset-4 col-sm-4">
+            <input class="center-block form-control input-sm" id="q" name="q" placeholder="Escribe algo que quieras buscar"
                    type="text"/>
+            <span class="input-group-btn">
+                <button class="btn btn-sm btn-primary" type="submit">Buscar</button>
+            </span>
         </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <button class="btn btn-default center-block" type="submit">Buscar</button>
-        </div>
+        <br/>
+        <div class="row" id="err"></div>
     </form>
     <div class="row">&nbsp;</div>
     <div id="resultsBlock"></div>
