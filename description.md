@@ -28,6 +28,6 @@ In order to see the error when camel sends the exception, we can catch it in the
 
 Then, we can see it running as we expected.
 
-![](../../../../../../../Users/topopelon/Desktop/camel.gif)
+![camel](https://user-images.githubusercontent.com/49093831/145462579-ee76c185-128d-4a11-9892-d5334bd6d07c.gif)
 
 More info: [Apache Camel - Throttle](https://camel.apache.org/components/3.13.x/eips/throttle-eip.html)
