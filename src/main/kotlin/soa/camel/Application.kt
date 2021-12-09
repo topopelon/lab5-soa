@@ -29,6 +29,8 @@ data class TwitterQuery (
 const val DIRECT_ROUTE = "direct:twitter"
 const val COUNT_ROUTE = "direct:extractor"
 const val LOG_ROUTE = "direct:log"
+const val MAXIMUM_REQUESTS = 1L
+const val REQUEST_COOLING_TIME_MILLIS = 5000L
 
 @Controller
 class SearchController(private val producerTemplate: ProducerTemplate) {
@@ -48,6 +50,9 @@ class Router(meterRegistry: MeterRegistry) : RouteBuilder() {
 
     override fun configure() {
         from(DIRECT_ROUTE)
+            .throttle(MAXIMUM_REQUESTS)
+            .timePeriodMillis(REQUEST_COOLING_TIME_MILLIS)
+            .rejectExecution(true)
             .toD("twitter-search:\${header.q}?count=\${header.max}")
             .wireTap(LOG_ROUTE)
             .wireTap(COUNT_ROUTE)
