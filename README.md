@@ -60,7 +60,6 @@ Proposed:
 - [Use Camel for keeping a copy of responses in a database](https://camel.apache.org/components/latest/jdbc-component.html)
 - [Enrich the response with moustache](https://camel.apache.org/components/latest/eips/content-enricher.html); remove moustache from the client.
 - [Create an operator "-" to filter out tweets that contain a keyword](https://camel.apache.org/components/latest/eips/filter-eip.html)
-- [Throttle the route to avoid be banned by Twitter](https://camel.apache.org/components/latest/eips/throttle-eip.html)
 
 The link provides one of the possible approaches. You can use a different one.
 
@@ -72,5 +71,7 @@ If you desist of your goal, release it by a PR so other fellow can try it.
 |User name | NIA | Status |  Improvement | Score  |
 |-------|-----------|------|-------------|--------|
 |[UNIZAR-30246-WebEngineering](https://github.com/UNIZAR-30246-WebEngineering/lab5-soa) | 30246 | [![Build Status](https://github.com/UNIZAR-30246-WebEngineering/lab5-soa/actions/workflows/ci.yml/badge.svg)](https://github.com/UNIZAR-30246-WebEngineering/lab5-soa/actions/workflows/ci.yml) | [instructions](https://github.com/UNIZAR-30246-WebEngineering/lab5-soa/wiki)
-|[Jorge Laguna](https://github.com/topopelon/lab5-soa/tree/work) | 735550 | [![Build Status](https://github.com/topopelon/lab5-soa/actions/workflows/ci.yml/badge.svg)](https://github.com/topopelon/lab5-soa/actions/workflows/ci.yml) | [Solution](https://github.com/topopelon/lab5-soa/blob/work/src/main/kotlin/soa/camel/Application.kt) |
+|[Jorge Laguna](https://github.com/topopelon/lab5-soa/tree/work) | 735550 | [![Build Status](https://github.com/topopelon/lab5-soa/actions/workflows/ci.yml/badge.svg)](https://github.com/topopelon/lab5-soa/actions/workflows/ci.yml) | [Throttle the route to avoid be banned by Twitter](https://github.com/topopelon/lab5-soa/blob/work/src/main/kotlin/soa/camel/Application.kt) | :gift:
+
+
 |       |           |      |             |        |
